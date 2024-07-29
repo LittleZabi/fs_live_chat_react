@@ -5,12 +5,12 @@ let user = Cookies.get('live-user')
 interface valuesInter {
   user: { [key: string]: string } | null;
   message: { message: string; variant: string } | null;
-  chatMessage: string
+  chatMessage: string,
 }
 const storeData: valuesInter = {
   user: user ? JSON.parse(user) : null,
   message:null ,
-  chatMessage: ''
+  chatMessage: '',
 };
 
 export const Store: any = createContext(storeData);

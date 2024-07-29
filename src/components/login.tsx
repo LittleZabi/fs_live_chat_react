@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { Store } from "../context";
 import axios from "axios";
-import { Cookies, VARS_ } from "../utils/globals";
+import { Cookies} from "../utils/globals";
 
-export default ({ setSwitchScreen }: any) => {
+export default ({ config, setSwitchScreen }: any) => {
   const { setValue }: any = useContext(Store);
   const [loading, setLoading] = useState(false);
   const handleForm = async (element: any) => {
@@ -26,11 +26,10 @@ export default ({ setSwitchScreen }: any) => {
       form.append("password", password.value);
       form.append("login", "1");
       await axios
-        .post(VARS_.ROOT_URL + "/backend/user.php", form)
+        .post(config.ROOT_URL + "/backend/user.php", form)
         .then((res: any) => {
           res = res.data;
           setLoading(false);
-          console.log(res);
           if (res.message === "UserNotActive") {
             setValue((state: any) => ({
               ...state,
@@ -48,9 +47,6 @@ export default ({ setSwitchScreen }: any) => {
               user: res,
               message: { message: "Success redirecting..." },
             }));
-            // setTimeout(() => {
-            //   window.location.href = VARS_.ROOT_URL;
-            // }, 2000);
           }
           if (res.message === "UserNotExist") {
             setValue((state: any) => ({

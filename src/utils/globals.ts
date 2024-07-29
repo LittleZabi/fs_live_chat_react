@@ -1,9 +1,5 @@
 const PUBLIC_ENV = "dev";
 
-export const VARS_ = {
-  ROOT_URL: "/live-chat/",
-};
-
 export const randomIcon = () => {
   const names = [
     "animal",

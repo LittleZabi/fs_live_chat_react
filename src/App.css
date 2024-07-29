@@ -9,6 +9,22 @@ html {
 button, input{
   outline: none !important;
 }
+#root{
+	display: grid;
+	grid-template-areas: 'header' 'main' 'footer';
+	grid-template-rows: auto 1fr auto;
+	height: 100vh;
+}
+header {
+	grid-area: header;
+}
+main {
+	grid-area: main;
+}
+footer {
+	grid-area: footer;
+}
+
 
 .scrn-x{
   width: 100%;
@@ -291,3 +307,4 @@ cursor: pointer;
 .menu-selection:hover, .menu-selection.active{
   border-bottom-color: #00e5ff;
 }
+

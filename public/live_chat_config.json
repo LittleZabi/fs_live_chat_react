@@ -1,0 +1,4 @@
+{
+  "env": "production",
+  "ROOT_URL": "http://localhost:80/live-chat"
+}

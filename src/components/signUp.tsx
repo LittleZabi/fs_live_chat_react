@@ -1,9 +1,7 @@
 import { useContext, useState } from "react";
 import { Store } from "../context";
 import axios from "axios";
-import { VARS_ } from "../utils/globals";
-
-export default ({ setSwitchScreen }: any) => {
+export default ({ config, setSwitchScreen }: any) => {
   const { setValue }: any = useContext(Store);
   const [loading, setLoading] = useState(false);
   const handleForm = async (element: any) => {
@@ -37,7 +35,7 @@ export default ({ setSwitchScreen }: any) => {
       form.append("fullname", fullname.value);
       form.append("signUp", "1");
       await axios
-        .post(VARS_.ROOT_URL + "/backend/user.php", form)
+        .post(config.ROOT_URL + "/backend/user.php", form)
         .then((res: any) => {
           res = res.data;
           setLoading(false);
